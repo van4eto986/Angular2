@@ -1,0 +1,16 @@
+ul{
+  list-style-type: none;
+}
+
+img{
+  height: 200px;
+}
+
+.flower-container{
+  border: 3px solid grey;
+  border-radius: 5px;
+}
+
+span{
+  font-weight: bold;
+}

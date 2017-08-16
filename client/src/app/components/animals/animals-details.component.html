@@ -1,0 +1,29 @@
+<h1>Animal Details:</h1>
+
+<h1>Name: {{data.name}}</h1>
+<h2>Type: {{data.type}}</h2>
+
+<img src="{{data.image}}" />
+<div>
+  <button class="btn" (click)="createReaction(data.id)">Create reaction</button>
+</div>
+<div>
+  <button class="btn" (click)="createComment(data.id)">Create comment</button>
+</div>
+<div>
+  <button class="btn btn-danger" (click)="delete(data.id)">Delete this</button>
+</div>
+<div>
+  Reactions:
+  <div>
+    {{data.reactions | json}}
+  </div>
+</div>
+<div>
+  Comments:
+  <div *ngFor="let comment of comments">
+    User: {{comment.user}}
+    Date: {{comment.createdOn}}
+    Message: {{comment.message}}
+  </div>
+</div>
