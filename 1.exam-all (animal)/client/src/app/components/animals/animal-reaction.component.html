@@ -1,0 +1,39 @@
+<h1>Animal reaction:</h1>
+
+<form #animalReactionForm='ngForm' (ngSubmit)='onSubmit()'>
+  <div class="form-group">
+    <label for="reaction">reaction:</label>
+    <select 
+      id="reaction" 
+      name="reaction" 
+      [(ngModel)]='animalReaction.type' 
+      #reaction='ngModel' 
+      required> 
+      <option value="like">like</option>
+      <option value="love">love</option>
+      <option value="haha">haha</option>
+      <option value="wow">wow</option>
+      <option value="sad">sad</option>
+      <option value="angry">angry</option>
+    </select>
+    <div [hidden]='reaction.valid || reaction.pristine'>
+      Reaction is required!
+    </div>
+  </div>   
+<!--
+  <div class="form-group">
+    <label for="comment">Comment:</label>
+    <input 
+      type="textarea" 
+      id="comment"
+      name="comment" 
+      [(ngModel)]='animalReaction.comment'
+      #comment='ngModel'
+      required />
+    <div [hidden]='comment.valid || comment.pristine'>
+      Comment is required!
+    </div>
+  </div>
+  -->
+  <button type="submit" [disabled]="!animalReactionForm.form.valid" class="btn btn-success">Create Reaction</button>
+</form> 

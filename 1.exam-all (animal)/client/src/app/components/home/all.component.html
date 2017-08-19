@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-md-3"> 
+        
+  </div>  
+  <div class="col-md-6 animal-container">
+    <search (sendAnimalInfoToAll)="animalInfoReceived($event)"></search>
+    <div *ngIf="data.length" >
+      
+      <h2>Animals:</h2>  
+      <ul>
+        <li *ngFor="let animal of data">
+          <h3><span>Animal name:</span> {{animal.name}} <button *ngIf="token" (click)="getAnimalId(animal)" class="btn btn-sm">View Details</button></h3>
+          <img src="{{animal.image}}" alt="{{animal.name}}" />  
+          <p>----------------------------------------------------------------------------------</p>     
+        </li>
+      </ul>
+    </div>
+    <div> 
+      <a href="javascript:void(0)" (click) = "previousPage()"><<</a> Page: {{currentPage}} <a href="javascript:void(0)" (click) = "nextPage()">>></a>
+    </div>
+    <div *ngIf="!data.length">No animals found</div>
+  </div>
+  <div class="col-md-3"></div>
+</div>

@@ -1,0 +1,19 @@
+<h1>Product reaction:</h1>
+
+<form #productCommentForm='ngForm' (ngSubmit)='onSubmit()'>
+  
+  <div class="form-group">
+    <label for="comment">Comment:</label>
+    <textarea 
+      id="comment"
+      name="comment" 
+      [(ngModel)]='message'
+      #comment='ngModel'
+      required ></textarea>
+    <div [hidden]='comment.valid || comment.pristine'>
+      Comment is required!
+    </div>
+  </div>
+  
+  <button type="submit" [disabled]="!productCommentForm.form.valid" class="btn btn-success">Create Comment</button>
+</form> 

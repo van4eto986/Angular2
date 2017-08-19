@@ -1,0 +1,10 @@
+<div *ngIf="username">Welcome <a (click)="getUser()">{{username}}</a></div>
+<nav>
+  <a routerLink='products/all'>ALL</a>
+  <a routerLink='/stats'>Statistics</a>
+  <a *ngIf="loggedIn" routerLink='/products/create'>New product</a>
+  <a *ngIf="loggedIn" (click)="logout()">Logout</a>
+  <a *ngIf="!loggedIn" routerLink='/login'>Login</a>
+  <a *ngIf="!loggedIn" routerLink='/register'>Register</a>
+</nav>
+
