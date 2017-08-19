@@ -1,0 +1,75 @@
+<h1>New Product</h1>
+
+<form #newProductForm='ngForm' (ngSubmit)='onSubmit()'>
+  <div class="form-group">
+    <label for="name">Product name:</label>
+    <input 
+      type="text" 
+      id="name" 
+      name="name" 
+      [(ngModel)]='product.name' 
+      #name='ngModel' 
+      required/>
+    <div [hidden]='name.valid || name.pristine'>
+      Name is required!
+    </div>
+  </div>  
+
+  <div class="form-group">
+    <label for="category">Category:</label>
+    <input 
+      type="text" 
+      id="category"
+      name="category" 
+      [(ngModel)]='product.category'
+      #category='ngModel'
+      required/>
+    <div [hidden]='category.valid || category.pristine'>
+      Password is required!
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="blossom">Blossom:</label>
+    <input 
+      type="text" 
+      id="blossom"
+      name="blossom" 
+      [(ngModel)]='product.blossom'
+      #blossom='ngModel'
+      required/>
+    <div [hidden]='blossom.valid || blossom.pristine'>
+      Blossom is required!
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="price">Price:</label>
+    <input 
+      type="number" 
+      id="price"
+      name="price" 
+      [(ngModel)]='product.price'
+      #price='ngModel'      
+      required/>
+    <div [hidden]='price.valid || price.pristine'>
+      Price is required!
+    </div>
+  </div>  
+
+  <div class="form-group">
+    <label for="image">Image:</label>
+    <input 
+      type="url"
+      id="image"
+      name="image" 
+      [(ngModel)]='product.image'
+      #image='ngModel'
+      required/>
+    <div [hidden]='image.valid || image.pristine'>
+      Image is required!
+    </div>  
+  </div> 
+
+  <button type="submit" [disabled]="!newProductForm.form.valid" class="btn btn-success">Add product</button>
+</form>

@@ -1,0 +1,35 @@
+<h1>Product Details:</h1>
+
+<h2><span>Name:</span> {{data.name}}</h2>
+<h2><span>Category:</span> {{data.category}}</h2>
+<h3><span>Price:</span> {{data.price}} &euro;</h3>
+<img src="{{data.image}}" />
+<br />
+<div>
+  <button class="btn" (click)="getProductId(data.id)">Create Review</button>
+</div>
+<br />
+<div>
+  <button class="btn" (click)="like(data.id)">Like this</button>
+</div>
+<br />
+<div>
+  <button class="btn btn-success btn-lg" (click)="buyProduct(data.id)" *ngIf="!isCreator">Buy Product</button>
+</div>
+<br />
+<div>
+  <button class="btn btn-danger" (click)="delete(data.id)" *ngIf="isCreator">Delete this</button>
+</div>
+
+
+<div class="review-container" *ngIf="reviewsData.length">
+  <h3>Reviews:</h3>  
+  <ul>
+    <li *ngFor="let review of reviewsData">
+      <p class="green-line">----------------------------------------------------------</p>
+      <p>rating: {{review.rating}}</p>
+      <p>comment: {{review.comment}}</p>
+      <p>from: {{review.user}}</p>    
+    </li>
+  </ul>
+</div>

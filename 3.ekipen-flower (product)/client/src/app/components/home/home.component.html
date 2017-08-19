@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-3"> 
+    <statistics></statistics>      
+  </div>  
+  <div class="col-md-6 product-container">
+    <div *ngIf="data.length" >
+      <search (sendProductInfoToHome)="productInfoReceived($event)"></search>
+      <h2>Products:</h2>  
+      <ul>
+        <li *ngFor="let product of data">
+          <h3><span>Product name:</span> {{product.name}} <button *ngIf="token" (click)="getProductId(product)" class="btn btn-sm">View Details</button></h3>
+          <h4><span>Created on:</span> {{product.createdOn | date: 'dd/MM/yyyy'}}</h4>
+          <p><span>Category:</span> {{product.category}}</p>
+          <p><span>ID:</span> {{product.id}}</p>
+          <p><span>Created by:</span> {{product.createdBy}}</p>
+          <img src="{{product.image}}" alt="{{product.name}}" />  
+          <p>likes: {{product.likes.length}}</p>
+          <p>-----------------------------------------------------------------------------------------------------------------</p>     
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="!data.length">No products found</div>
+  </div>
+  <div class="col-md-3"></div>
+</div>
